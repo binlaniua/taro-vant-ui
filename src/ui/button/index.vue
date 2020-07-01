@@ -15,7 +15,7 @@
         custom-class="loading-class"
         :size=" loadingSize "
         :type=" loadingType "
-        :color=" loadingColor(type,color,plain) "
+        :color=" loadingColor"
       />
       <view v-if=" loadingText" class="van-button__loading-text">{{ loadingText }}</view>
     </block>
@@ -35,10 +35,14 @@
   </button>
 </template>
 <script>
-import bem from "../utils/bem";
 import { computed } from "vue";
+import bem from "../utils/bem";
+import VanIcon from "../icon";
 
 export default {
+  components: {
+    VanIcon
+  },
   props: {
     formType: String,
     icon: String,
@@ -74,8 +78,14 @@ export default {
     }
   },
   setup(props) {
+    const loadingColor = computed(() => {
+      if (props.plain) return color ? color : "#c9c9c9";
+      if (props.type === "default") return "#c9c9c9";
+      return "white";
+    });
     return {
       bem,
+      loadingColor,
       onClick() {
         this.$emit("click");
       }

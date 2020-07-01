@@ -1,25 +1,30 @@
 <template>
   <view class="index">
-    <u-button type="danger">普通按钮</u-button>
+    <!-- <van-button type="danger">普通按钮</van-button>
     <view class="my-1"></view>
-    <u-button plain type="primary">朴素按钮</u-button>
+    <van-button plain type="primary">朴素按钮</van-button>
     <view class="my-1"></view>
-    <u-button plain hairline type="info">细边框</u-button>
+    <van-button plain hairline type="info">细边框</van-button>
     <view class="my-1"></view>
-    <u-button disabled type="info">禁用</u-button>
+    <van-button disabled type="info">禁用</van-button>
     <view class="my-1"></view>
-    <u-button loading type="success"></u-button>
+    <van-button loading type="success"></van-button>
+    <view class="my-1"></view>-->
+    <van-icon name="iconwenjianjia" />
+    <van-icon name="https://b.yzcdn.cn/vant/icon-demo-1126.png" />
   </view>
 </template>
 
 <script >
-import UButton from "@ui/button/index.vue";
+import VanButton from "@ui/button/index.vue";
+import VanIcon from "@ui/icon/index.vue";
 import { ref } from "vue";
 
 export default {
   name: "Index",
   components: {
-    UButton
+    VanButton,
+    VanIcon
   },
   setup(props) {
     return {};

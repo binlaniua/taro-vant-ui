@@ -1567,6 +1567,11 @@
     semver "^7.3.2"
     tsutils "^3.17.1"
 
+"@vant/icons@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.npm.taobao.org/@vant/icons/download/@vant/icons-1.2.1.tgz#309fecb97a4989866f045ce676b545c454701c8f"
+  integrity sha1-MJ/suXpJiYZvBFzmdrVFxFRwHI8=
+
 "@vue/compiler-core@3.0.0-beta.17":
   version "3.0.0-beta.17"
   resolved "https://registry.npm.taobao.org/@vue/compiler-core/download/@vue/compiler-core-3.0.0-beta.17.tgz#92d75f5ae7a03c51694f439dc96939bde9a7074e"
