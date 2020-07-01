@@ -1,16 +1,14 @@
 <template>
   <button
-    :id=" id "
     :data-detail=" dataset "
     class="custom-class"
     :class="bem('button', [type,size,{block,round,plain,square,loading,disabled,hairline}])"
     hover-class="van-button--active hover-class"
-    :lang=" lang "
     :form-type=" formType "
     :open-type=" disabled ? '' : openType "
     @tap="onClick"
   >
-    <block v-if=" loading ">
+    <template v-if=" loading ">
       <van-loading
         custom-class="loading-class"
         :size=" loadingSize "
@@ -18,8 +16,8 @@
         :color=" loadingColor"
       />
       <view v-if=" loadingText" class="van-button__loading-text">{{ loadingText }}</view>
-    </block>
-    <block v-else>
+    </template>
+    <template v-else>
       <van-icon
         v-if=" icon "
         size="1.2em"
@@ -31,17 +29,19 @@
       <view class="van-button__text">
         <slot />
       </view>
-    </block>
+    </template>
   </button>
 </template>
 <script>
 import { computed } from "vue";
 import bem from "../utils/bem";
 import VanIcon from "../icon";
+import VanLoading from "../loading";
 
 export default {
   components: {
-    VanIcon
+    VanIcon,
+    VanLoading
   },
   props: {
     formType: String,

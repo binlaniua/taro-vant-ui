@@ -4,19 +4,23 @@
     :class="[classPrefix, isRemote ? 'van-icon--image' :  name]"
     @tap="onClick"
   >
-    <van-info v-if="dot" :dot="dot" :info="info" custom-class="van-icon__info" />
+    <van-info v-if="dot || info" :dot="dot" :info="info" custom-class="van-icon__info" />
     <image v-if="isRemote" :src="name" mode="aspectFit" class="van-icon__image" />
   </view>
 </template>
 <script>
 import bem from "../utils/bem";
 import { computed } from "vue";
+import VanInfo from "../info";
 
 export default {
+  components: {
+    VanInfo
+  },
   props: {
     dot: Boolean,
-    info: null,
-    size: null,
+    info: String,
+    size: String,
     color: String,
     customStyle: String,
     classPrefix: {
