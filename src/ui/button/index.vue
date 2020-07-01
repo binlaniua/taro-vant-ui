@@ -1,0 +1,88 @@
+<template>
+  <button
+    :id=" id "
+    :data-detail=" dataset "
+    class="custom-class"
+    :class="bem('button', [type,size,{block,round,plain,square,loading,disabled,hairline}])"
+    hover-class="van-button--active hover-class"
+    :lang=" lang "
+    :form-type=" formType "
+    :open-type=" disabled ? '' : openType "
+    @tap="onClick"
+  >
+    <block v-if=" loading ">
+      <van-loading
+        custom-class="loading-class"
+        :size=" loadingSize "
+        :type=" loadingType "
+        :color=" loadingColor(type,color,plain) "
+      />
+      <view v-if=" loadingText" class="van-button__loading-text">{{ loadingText }}</view>
+    </block>
+    <block v-else>
+      <van-icon
+        v-if=" icon "
+        size="1.2em"
+        :name=" icon "
+        :class-prefix=" classPrefix "
+        class="van-button__icon"
+        custom-style="line-height: inherit;"
+      />
+      <view class="van-button__text">
+        <slot />
+      </view>
+    </block>
+  </button>
+</template>
+<script>
+import bem from "../utils/bem";
+import { computed } from "vue";
+
+export default {
+  props: {
+    formType: String,
+    icon: String,
+    classPrefix: {
+      type: String,
+      value: "van-icon"
+    },
+    plain: Boolean,
+    block: Boolean,
+    round: Boolean,
+    square: Boolean,
+    loading: Boolean,
+    hairline: Boolean,
+    disabled: Boolean,
+    loadingText: String,
+    customStyle: String,
+    loadingType: {
+      type: String,
+      default: "circular"
+    },
+    type: {
+      type: String,
+      default: "default"
+    },
+    dataset: null,
+    size: {
+      type: String,
+      default: "normal"
+    },
+    loadingSize: {
+      type: String,
+      default: "20px"
+    }
+  },
+  setup(props) {
+    return {
+      bem,
+      onClick() {
+        this.$emit("click");
+      }
+    };
+  }
+};
+</script>
+<style lang="less">
+@import url("./index.less");
+</style>

@@ -1,0 +1,30 @@
+{
+    "tkk-component": {
+        "prefix": "tkk-component",
+        "body": [
+            "<template>",
+            "   <div class=\"k-$1\"></div>",
+            "</template>",
+            "<script>",
+            "export default {",
+            "  data() {",
+            "    return {",
+            "    };",
+            "  },",
+            "  watch: {",
+            "  },",
+            "  props: {",
+            "  },",
+            "  methods: {",
+            "  },",
+            "  mounted() {",
+            "  }",
+            "};",
+            "</script>",
+            "<style lang=\"less\">",
+            ".k-$1 {",
+            "}",
+            "</style>"
+        ]
+    }
+}
