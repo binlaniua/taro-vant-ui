@@ -6,7 +6,7 @@
         v-else
         name="success"
         size="0.8em"
-        :class=" bem('checkbox__icon', [shape, { disabled: disabled || parentDisabled, checked: value }])"
+        :class=" bem('checkbox__icon', [shape, { disabled: disabled || parentDisabled, checked }])"
         :style=" iconStyle "
         custom-class="icon-class"
         custom-style="line-height: 1.25em;"
@@ -32,7 +32,8 @@ export default defineComponent({
     VanIcon
   },
   props: {
-    value: Boolean,
+    name: { type: String, default: "" },
+    value: { type: Boolean, default: null },
     disabled: Boolean,
     useIconSlot: Boolean,
     checkedColor: String,
@@ -48,7 +49,13 @@ export default defineComponent({
     }
   },
   setup(props, { emit }) {
-    const parentDisabled = inject("disabled", false);
+    // 如果被checkbox-group给包住
+    // 不能使用 {...}  结构会丢失响应
+    const checkboxGroup = inject("checkbox-group", {
+      value: [],
+      disabled: false,
+      setParentValue: null
+    });
 
     const iconStyle = computed(() => {
       var styles = [["font-size", utils.addUnit(props.iconSize)]];
@@ -56,7 +63,7 @@ export default defineComponent({
         props.checkedColor &&
         props.value &&
         !props.disabled &&
-        !parentDisabled
+        !checkboxGroup.disabled
       ) {
         styles.push(["border-color", props.checkedColor]);
         styles.push(["background-color", props.checkedColor]);
@@ -68,13 +75,23 @@ export default defineComponent({
         .join(";");
     });
 
+    const checked = computed(() => {
+      if (checkboxGroup.setParentValue) {
+        //@ts-ignore
+        return ~checkboxGroup.value.indexOf(props.name);
+      }
+      return props.value;
+    });
+
     return {
       bem,
-      parentDisabled,
+      parentDisabled: checkboxGroup.disabled,
       iconStyle,
+      checked,
       emitChange(value) {
-        if (this.parent) {
-          this.setParentValue(this.parent, value);
+        if (checkboxGroup.setParentValue) {
+          //@ts-ignore
+          checkboxGroup.setParentValue(props.name);
         } else {
           emit("input", value);
           emit("change", value);
@@ -83,14 +100,14 @@ export default defineComponent({
 
       toggle() {
         const { disabled, value } = props;
-        if (!disabled && !parentDisabled) {
+        if (!disabled && !checkboxGroup.disabled) {
           this.emitChange(!value);
         }
       },
 
       onClickLabel() {
         const { labelDisabled, disabled, value } = props;
-        if (!disabled && !labelDisabled && !parentDisabled) {
+        if (!disabled && !labelDisabled && !checkboxGroup.disabled) {
           this.emitChange(!value);
         }
       }

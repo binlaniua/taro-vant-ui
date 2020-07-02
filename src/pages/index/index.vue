@@ -1,6 +1,6 @@
 <template>
   <view class="index">
-    <!-- <van-button type="danger">普通按钮</van-button>
+    <van-button type="danger">普通按钮</van-button>
     <view class="my-1"></view>
     <van-button plain type="primary">朴素按钮</van-button>
     <view class="my-1"></view>
@@ -38,21 +38,27 @@
         <view class="bg-blue">span: 12</view>
       </van-col>
     </van-row>-->
-    <!-- <view class="my-1"></view>
+    <view class="my-1"></view>
     <van-button @click="showPopup = true">点击弹窗</van-button>
     <van-popup
       custom-style="height:20%"
       position="top"
       :show="showPopup"
       @close="showPopup = false"
-    ></van-popup>-->
+    ></van-popup>
     <view class="my-1"></view>
     <van-checkbox :value="checkbox" @change="checkbox = $event">复选框</van-checkbox>
+    <van-checkbox-group :value="checkboxGroup" @change="checkboxGroup = $event">
+      <van-checkbox name="a">复选框 a</van-checkbox>
+      <van-checkbox name="b">复选框 b</van-checkbox>
+      <van-checkbox name="c">复选框 c</van-checkbox>
+    </van-checkbox-group>
   </view>
 </template>
 
 <script >
 import VanCheckbox from "@ui/checkbox/index.vue";
+import VanCheckboxGroup from "@ui/checkbox-group/index.vue";
 import VanButton from "@ui/button/index.vue";
 import VanIcon from "@ui/icon/index.vue";
 import VanCellGroup from "@ui/cell-group/index.vue";
@@ -65,6 +71,7 @@ import { onMounted, ref } from "vue";
 export default {
   name: "Index",
   components: {
+    VanCheckboxGroup,
     VanCheckbox,
     VanPopup,
     VanCellGroup,
@@ -75,9 +82,14 @@ export default {
     VanCol
   },
   setup(props) {
+    const checkboxGroup = ref([]);
     return {
       showPopup: ref(false),
-      checkbox: ref(false)
+      checkbox: ref(false),
+      checkboxGroup,
+      onChange(evt) {
+        checkboxGroup.value = evt;
+      }
     };
   }
 };

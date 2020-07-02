@@ -16,3 +16,4 @@
 - [x] van-popup
 - [x] van-transition
 - [x] van-checkbox
+- [x] van-checkbox-group
