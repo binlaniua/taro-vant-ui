@@ -25,7 +25,7 @@
   </view>
 </template>
 <script lang="ts">
-import { defineComponent, watch } from "vue";
+import { defineComponent, watch, computed, toRefs, reactive } from "vue";
 import bem from "../utils/bem";
 import useTransition from "../hook/useTransition";
 import VanIcon from "../icon/index.vue";
@@ -90,7 +90,15 @@ export default defineComponent({
     }
   },
   setup(props, { emit }) {
-    const { state, onTransitionEnd } = useTransition(props, emit);
+    const { state, onTransitionEnd } = useTransition(
+      reactive({
+        duration: computed(() => props.duration),
+        show: computed(() => props.show),
+        name: computed(() => props.position)
+      }),
+      emit
+    );
+
     watch(
       [() => props.transition, () => props.position],
       ([transition, position]) => {

@@ -1,4 +1,4 @@
-import { reactive, watch, nextTick } from "vue";
+import { reactive, watch } from "vue";
 import { isObj } from "../utils";
 
 interface ITransitionProps {
@@ -14,7 +14,11 @@ const getClassNames = (name: string) => ({
   "leave-to": `van-${name}-leave-to van-${name}-leave-active leave-to-class leave-active-class`
 });
 
+const nextTick = () => new Promise((resolve) => setTimeout(resolve, 1000 / 30));
+
 export default function useTransition(props: ITransitionProps, emit: (evt: string, args?: any) => void) {
+  console.log(props);
+
   //
   watch(
     () => props.show,

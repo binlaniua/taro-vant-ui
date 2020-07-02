@@ -40,9 +40,12 @@
     </van-row>-->
     <view class="my-1"></view>
     <van-button @click="showPopup = true">点击弹窗</van-button>
-    <text>11</text>
-    <van-popup :show="showPopup" @close="showPopup = false">内容</van-popup>
-    <text>22</text>
+    <van-popup
+      custom-style="height:20%"
+      position="top"
+      :show="showPopup"
+      @close="showPopup = false"
+    ></van-popup>
   </view>
 </template>
 
