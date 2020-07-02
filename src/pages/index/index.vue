@@ -38,18 +38,21 @@
         <view class="bg-blue">span: 12</view>
       </van-col>
     </van-row>-->
-    <view class="my-1"></view>
+    <!-- <view class="my-1"></view>
     <van-button @click="showPopup = true">点击弹窗</van-button>
     <van-popup
       custom-style="height:20%"
       position="top"
       :show="showPopup"
       @close="showPopup = false"
-    ></van-popup>
+    ></van-popup>-->
+    <view class="my-1"></view>
+    <van-checkbox :value="checkbox" @change="checkbox = $event">复选框</van-checkbox>
   </view>
 </template>
 
 <script >
+import VanCheckbox from "@ui/checkbox/index.vue";
 import VanButton from "@ui/button/index.vue";
 import VanIcon from "@ui/icon/index.vue";
 import VanCellGroup from "@ui/cell-group/index.vue";
@@ -62,6 +65,7 @@ import { onMounted, ref } from "vue";
 export default {
   name: "Index",
   components: {
+    VanCheckbox,
     VanPopup,
     VanCellGroup,
     VanCell,
@@ -72,7 +76,8 @@ export default {
   },
   setup(props) {
     return {
-      showPopup: ref(false)
+      showPopup: ref(false),
+      checkbox: ref(false)
     };
   }
 };
