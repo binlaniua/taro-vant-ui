@@ -1,6 +1,6 @@
 <template>
   <view class="index">
-    <!-- <van-button type="danger">普通按钮</van-button>
+    <van-button type="danger">普通按钮</van-button>
     <view class="my-1"></view>
     <van-button plain type="primary">朴素按钮</van-button>
     <view class="my-1"></view>
@@ -11,13 +11,33 @@
     <van-button loading type="success"></van-button>
     <view class="my-1"></view>
     <van-icon class="mr-1" dot name="iconwenjianjia" />
-    <van-icon info="9" name="https://b.yzcdn.cn/vant/icon-demo-1126.png" />-->
-    <!-- <view class="my-1"></view>
+    <van-icon info="9" name="https://b.yzcdn.cn/vant/icon-demo-1126.png" />
+    <view class="my-1"></view>
     <van-cell-group>
       <van-cell title="单元格" value="内容" />
       <van-cell title="单元格" value="内容" label="描述信息" :border=" false " />
-    </van-cell-group> -->
-    
+    </van-cell-group>
+    <view class="my-1"></view>
+    <van-row :gutter="4">
+      <van-col :span="8">
+        <view class="bg-blue">span: 8</view>
+      </van-col>
+      <van-col :span="8">
+        <view class="bg-blue">span: 8</view>
+      </van-col>
+      <van-col :span="8">
+        <view class="bg-blue">span: 8</view>
+      </van-col>
+    </van-row>
+    <view class="my-1"></view>
+    <van-row :gutter="8">
+      <van-col :span="12">
+        <view class="bg-blue">span: 12</view>
+      </van-col>
+      <van-col :span="12">
+        <view class="bg-blue">span: 12</view>
+      </van-col>
+    </van-row>
   </view>
 </template>
 
@@ -26,7 +46,9 @@ import VanButton from "@ui/button/index.vue";
 import VanIcon from "@ui/icon/index.vue";
 import VanCellGroup from "@ui/cell-group/index.vue";
 import VanCell from "@ui/cell/index.vue";
-import { ref } from "vue";
+import VanCol from "@ui/col/index.vue";
+import VanRow from "@ui/row/index.vue";
+import { onMounted, ref } from "vue";
 
 export default {
   name: "Index",
@@ -34,11 +56,11 @@ export default {
     VanCellGroup,
     VanCell,
     VanButton,
-    VanIcon
+    VanIcon,
+    VanRow,
+    VanCol
   },
-  setup(props) {
-    return {};
-  }
+  setup(props) {}
 };
 </script>
 
@@ -50,5 +72,8 @@ export default {
 }
 .mr-1 {
   margin-right: 8px;
+}
+.bg-blue {
+  background: #00a9e9;
 }
 </style>
