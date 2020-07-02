@@ -10,10 +10,10 @@
 </template>
 <script>
 import bem from "../utils/bem";
-import { computed } from "vue";
+import { computed, defineComponent } from "vue";
 import VanInfo from "../info";
 
-export default {
+export default defineComponent({
   components: {
     VanInfo
   },
@@ -42,7 +42,7 @@ export default {
       }
     };
   }
-};
+});
 </script>
 <style lang="less">
 @import url("./index.less");

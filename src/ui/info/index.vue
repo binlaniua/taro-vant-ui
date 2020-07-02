@@ -6,22 +6,22 @@
     :style="customStyle"
   >{{ dot ? '' : info }}</view>
 </template>
-<script>
+<script lang="ts">
 import bem from "../utils/bem";
-import { computed } from "vue";
+import { defineComponent } from "vue";
 
-export default {
+export default defineComponent({
   props: {
     dot: Boolean,
     info: String,
     customStyle: String
   },
-  setup(props) {
+  setup() {
     return {
       bem
     };
   }
-};
+});
 </script>
 <style lang="less">
 @import url("./index.less");

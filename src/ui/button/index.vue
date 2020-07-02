@@ -32,13 +32,13 @@
     </template>
   </button>
 </template>
-<script>
-import { computed } from "vue";
+<script lang="ts">
+import { computed, defineComponent } from "vue";
 import bem from "../utils/bem";
-import VanIcon from "../icon";
-import VanLoading from "../loading";
+import VanIcon from "../icon/index.vue";
+import VanLoading from "../loading/index.vue";
 
-export default {
+export default defineComponent({
   components: {
     VanIcon,
     VanLoading
@@ -50,6 +50,7 @@ export default {
       type: String,
       value: "van-icon"
     },
+    color: String,
     plain: Boolean,
     block: Boolean,
     round: Boolean,
@@ -79,7 +80,7 @@ export default {
   },
   setup(props) {
     const loadingColor = computed(() => {
-      if (props.plain) return color ? color : "#c9c9c9";
+      if (props.plain) return props.color ? props.color : "#c9c9c9";
       if (props.type === "default") return "#c9c9c9";
       return "white";
     });
@@ -91,7 +92,7 @@ export default {
       }
     };
   }
-};
+});
 </script>
 <style lang="less">
 @import url("./index.less");

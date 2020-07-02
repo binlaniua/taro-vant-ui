@@ -1,30 +1,54 @@
 {
-    "tkk-component": {
-        "prefix": "tkk-component",
-        "body": [
-            "<template>",
-            "   <div class=\"k-$1\"></div>",
-            "</template>",
-            "<script>",
-            "export default {",
-            "  data() {",
-            "    return {",
-            "    };",
-            "  },",
-            "  watch: {",
-            "  },",
-            "  props: {",
-            "  },",
-            "  methods: {",
-            "  },",
-            "  mounted() {",
-            "  }",
-            "};",
-            "</script>",
-            "<style lang=\"less\">",
-            ".k-$1 {",
-            "}",
-            "</style>"
-        ]
-    }
+  "tkk-component": {
+    "prefix": "tkk-component",
+    "body": [
+      "<template>",
+      "   <div class=\"k-$1\"></div>",
+      "</template>",
+      "<script>",
+      "export default {",
+      "  data() {",
+      "    return {",
+      "    };",
+      "  },",
+      "  watch: {",
+      "  },",
+      "  props: {",
+      "  },",
+      "  methods: {",
+      "  },",
+      "  mounted() {",
+      "  }",
+      "};",
+      "</script>",
+      "<style lang=\"less\">",
+      ".k-$1 {",
+      "}",
+      "</style>"
+    ]
+  },
+  "tkk-component3": {
+    "prefix": "tkk-component3",
+    "body": [
+      "<template>",
+      "</template>",
+      "<script lang=\"ts\">",
+      "import { defineComponent } from \"vue\";",
+      "",
+      "export default defineComponent({",
+      "  components: {",
+      "  },",
+      "  props: {",
+      "  },",
+      "  setup() {",
+      "    return {",
+      "    };",
+      "  }",
+      "});",
+      "</script>",
+      "<style lang=\"less\">",
+      "@import url(\"./index.less\");",
+      "</style>"
+    ]
+  }
 }

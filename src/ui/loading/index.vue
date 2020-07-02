@@ -11,7 +11,9 @@
   </view>
 </template>
 <script>
-export default {
+import { defineComponent } from "vue";
+
+export default defineComponent({
   components: {},
   props: {
     color: String,
@@ -28,7 +30,7 @@ export default {
       array12: Array.from({ length: 12 })
     };
   }
-};
+});
 </script>
 <style lang="less">
 @import url("./index.less");
