@@ -76,7 +76,8 @@ export default defineComponent({
     loadingSize: {
       type: String,
       default: "20px"
-    }
+    },
+    openType: String
   },
   setup(props) {
     const loadingColor = computed(() => {

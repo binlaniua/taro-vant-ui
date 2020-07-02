@@ -1,6 +1,6 @@
 <template>
   <view class="index">
-    <van-button type="danger">普通按钮</van-button>
+    <!-- <van-button type="danger">普通按钮</van-button>
     <view class="my-1"></view>
     <van-button plain type="primary">朴素按钮</van-button>
     <view class="my-1"></view>
@@ -37,7 +37,12 @@
       <van-col :span="12">
         <view class="bg-blue">span: 12</view>
       </van-col>
-    </van-row>
+    </van-row>-->
+    <view class="my-1"></view>
+    <van-button @click="showPopup = true">点击弹窗</van-button>
+    <text>11</text>
+    <van-popup :show="showPopup" @close="showPopup = false">内容</van-popup>
+    <text>22</text>
   </view>
 </template>
 
@@ -48,11 +53,13 @@ import VanCellGroup from "@ui/cell-group/index.vue";
 import VanCell from "@ui/cell/index.vue";
 import VanCol from "@ui/col/index.vue";
 import VanRow from "@ui/row/index.vue";
+import VanPopup from "@ui/popup/index.vue";
 import { onMounted, ref } from "vue";
 
 export default {
   name: "Index",
   components: {
+    VanPopup,
     VanCellGroup,
     VanCell,
     VanButton,
@@ -60,7 +67,11 @@ export default {
     VanRow,
     VanCol
   },
-  setup(props) {}
+  setup(props) {
+    return {
+      showPopup: ref(false)
+    };
+  }
 };
 </script>
 

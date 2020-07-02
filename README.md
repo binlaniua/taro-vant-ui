@@ -12,3 +12,5 @@
 - [x] van-cell-group
 - [x] van-row
 - [x] van-col
+- [x] van-overlay
+- [x] van-popup
