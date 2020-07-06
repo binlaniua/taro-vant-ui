@@ -27,6 +27,7 @@
 @disabled-opacity: 0.5;
 @background-color: @gray-1;
 @background-color-light: #fafafa;
+@text-link-color: #576b95;
 
 // Padding
 @padding-base: 4px;
@@ -42,11 +43,9 @@
 @font-size-md: 14px;
 @font-size-lg: 16px;
 @font-weight-bold: 500;
-@base-font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-  Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC', 'Hiragino Sans GB',
-  'Microsoft Yahei', sans-serif;
-@price-integer-font-family: Avenir-Heavy, PingFang SC, Helvetica Neue, Arial,
-  sans-serif;
+@base-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Segoe UI, Arial, Roboto,
+  "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+@price-integer-font-family: Avenir-Heavy, PingFang SC, Helvetica Neue, Arial, sans-serif;
 
 // Animation
 @animation-duration-base: 0.3s;
@@ -376,8 +375,8 @@
 @switch-node-size: 1em;
 @switch-node-z-index: 1;
 @switch-node-background-color: @white;
-@switch-node-box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.05),
-  0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 3px 0 rgba(0, 0, 0, 0.05);
+@switch-node-box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.05), 0 2px 2px 0 rgba(0, 0, 0, 0.1),
+  0 3px 3px 0 rgba(0, 0, 0, 0.05);
 @switch-background-color: @white;
 @switch-on-background-color: @blue;
 @switch-transition-duration: 0.3s;
@@ -613,3 +612,18 @@
 @skeleton-row-margin-top: @padding-sm;
 @skeleton-avatar-background-color: @gray-2;
 @skeleton-animation-duration: 1.2s;
+
+// Picker
+@picker-background-color: @white;
+@picker-toolbar-height: 44px;
+@picker-title-font-size: @font-size-lg;
+@picker-action-padding: 0 @padding-md;
+@picker-action-font-size: @font-size-md;
+@picker-confirm-action-color: @text-link-color;
+@picker-cancel-action-color: @gray-6;
+@picker-option-font-size: @font-size-lg;
+@picker-option-text-color: @black;
+@picker-loading-icon-color: @blue;
+@picker-loading-mask-color: rgba(255, 255, 255, 0.9);
+@picker-option-disabled-opacity: 0.3;
+@picker-option-selected-text-color: @text-color;

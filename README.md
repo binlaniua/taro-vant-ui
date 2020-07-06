@@ -17,3 +17,4 @@
 - [x] van-transition
 - [x] van-checkbox
 - [x] van-checkbox-group
+- [ ] van-picker

@@ -1,6 +1,6 @@
 <template>
   <view class="index">
-    <van-button type="danger">普通按钮</van-button>
+    <!-- <van-button type="danger">普通按钮</van-button>
     <view class="my-1"></view>
     <van-button plain type="primary">朴素按钮</van-button>
     <view class="my-1"></view>
@@ -37,7 +37,7 @@
       <van-col :span="12">
         <view class="bg-blue">span: 12</view>
       </van-col>
-    </van-row>-->
+    </van-row>
     <view class="my-1"></view>
     <van-button @click="showPopup = true">点击弹窗</van-button>
     <van-popup
@@ -52,11 +52,19 @@
       <van-checkbox name="a">复选框 a</van-checkbox>
       <van-checkbox name="b">复选框 b</van-checkbox>
       <van-checkbox name="c">复选框 c</van-checkbox>
-    </van-checkbox-group>
+    </van-checkbox-group>-->
+    <view class="my-1"></view>
+    <van-picker
+      show-toolbar
+      title="标题"
+      :columns="['杭州', '宁波', '温州', '嘉兴', '湖州']"
+      @change="log('van-picker', $event)"
+    />
   </view>
 </template>
 
 <script >
+import VanPicker from "@ui/picker/index.vue";
 import VanCheckbox from "@ui/checkbox/index.vue";
 import VanCheckboxGroup from "@ui/checkbox-group/index.vue";
 import VanButton from "@ui/button/index.vue";
@@ -71,6 +79,7 @@ import { onMounted, ref } from "vue";
 export default {
   name: "Index",
   components: {
+    VanPicker,
     VanCheckboxGroup,
     VanCheckbox,
     VanPopup,
@@ -89,6 +98,9 @@ export default {
       checkboxGroup,
       onChange(evt) {
         checkboxGroup.value = evt;
+      },
+      log(name, evt) {
+        console.log(name, evt);
       }
     };
   }
